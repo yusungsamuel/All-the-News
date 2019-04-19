@@ -3,6 +3,7 @@ var logger = require("morgan");
 var mongoose = require("mongoose");
 var axios = require("axios");
 var cheerio = require("cheerio");
+var exphbs = require("express-handlebars");
 
 var PORT = 3000;
 
@@ -18,7 +19,17 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
+
+app.engine("handlebars", exphbs({defaultLayout: "main"}))
+app.set("view engine", "handlebars");
+
+
 mongoose.connect(MONGODB_URI);
+
+app.get("/", function(req, res){
+    res.render("index")
+})
+
 
 app.get("/scrape", function(req, res){
     axios.get("https://myanimelist.net/news/tag/new_anime").then(function(response){
@@ -40,6 +51,8 @@ app.get("/scrape", function(req, res){
         res.send("SCRAPED")
     })
 })
+
+
 
 app.listen(PORT, function() {
     console.log("App running on port " + PORT + "!");
