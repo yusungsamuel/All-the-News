@@ -22,8 +22,9 @@ $(".scrape").on("click", function(){
 
 $(".save-article").on("click", function(){
     event.preventDefault();
+    console.log($(this).attr("data-id"))
     $.ajax({
-        url: "/save",
+        url: "/save/" + $(this).attr("data-id"),
         method: "PUT",
     }).then(function(response){
         console.log(response)

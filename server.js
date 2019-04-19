@@ -83,9 +83,19 @@ app.post("/articles/:id", function(req, res){
     });
 });
 
+app.put("/save/:id", function(req, res){
+    db.Article.findOneAndUpdate({_id: req.params.id}, {saved: true}, {new:true})
+    .then(function(response){
+            res.end()
+        })
+    .catch(function(err){
+        console.log(err)
+    })
+})
+
 app.get("/saved", function(req, res){
     db.Article.find({saved:true}).then(function(savedArticles){
-        res.render("indedx", {saved: savedArticles})
+        res.render("saved", {saved: savedArticles})
     })
 })
 
