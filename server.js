@@ -24,9 +24,11 @@ app.get("/scrape", function(req, res){
         var $ = cheerio.load(response.data);
 
         $("div.news-unit").each(function(i, element){
-            var title = $(element).find("p.title").text()
-            console.log(title)
-            var peek = $(element).find("div.text").text()
+            var title = $(element).find("p.title").text();
+            var link = $(element).find(".title").children().attr("href");
+            var peek = $(element).find("div.text").text();
+            var image = $(element).children("a").find(".image").attr("src");
+            console.log(i , image)
         })
         res.send("SCRAPED")
     })
