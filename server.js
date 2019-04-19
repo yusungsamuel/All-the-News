@@ -26,11 +26,12 @@ app.set("view engine", "handlebars");
 
 mongoose.connect(MONGODB_URI);
 
+//home page
 app.get("/", function(req, res){
     res.render("index")
 })
 
-
+//scrape request
 app.get("/scrape", function(req, res){
     axios.get("https://myanimelist.net/news/tag/new_anime").then(function(response){
         
@@ -51,6 +52,27 @@ app.get("/scrape", function(req, res){
         res.send("SCRAPED")
     })
 })
+
+//display all articles on main page
+app.get("/articles", function(req, res){
+    db.Article.find({})
+    .then(function(dbArticle){
+        res.json(dbArticle)
+    })
+    .catch(function(err){
+        res.json(err)
+    });
+});
+
+//clear all articles in db
+app.delete("/cleararticles", function(req, res){
+    db.Article.deleteMany({})
+    .then(res.send("All articles removed."))
+    .catch(function(err){
+        console.log(err)
+    }
+    )
+});
 
 
 
