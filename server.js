@@ -54,7 +54,7 @@ app.get("/scrape", function(req, res){
                 console.log(`${dbArticle} is added to database`)
             })
         })
-        res.send("SCRAPED")
+        res.end()
     })
 })
 
@@ -81,6 +81,12 @@ app.post("/articles/:id", function(req, res){
     .catch(function(err) {
       res.json(err);
     });
+});
+
+app.get("/saved", function(req, res){
+    db.Article.find({saved:true}).then(function(savedArticles){
+        res.render("indedx", {saved: savedArticles})
+    })
 })
 
 
@@ -88,7 +94,7 @@ app.post("/articles/:id", function(req, res){
 //clear all articles in db
 app.delete("/cleararticles", function(req, res){
     db.Article.deleteMany({})
-    .then(res.send("All articles removed."))
+    .then(res.end())
     .catch(function(err){
         console.log(err)
     }

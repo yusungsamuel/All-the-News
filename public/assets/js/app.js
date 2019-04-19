@@ -6,10 +6,26 @@ $(".clear-articles").on("click", function(event){
         url: "/cleararticles",
         method: "DELETE",
     }).then(function(response){
-        console.log("all articles removed")
+        window.location.reload()
     })
 })
 
-$("h1").on("click", function(){
-    console.log("h1 clicked")
+$(".scrape").on("click", function(){
+    event.preventDefault();
+    $.ajax({
+        url: "/scrape",
+        method: "GET",
+    }).then(function(response){
+        window.location.reload()
+    })
+})
+
+$(".save-article").on("click", function(){
+    event.preventDefault();
+    $.ajax({
+        url: "/save",
+        method: "PUT",
+    }).then(function(response){
+        console.log(response)
+    })
 })

@@ -1,0 +1,22 @@
+
+body {
+    image-rendering: -webkit-optimize-contrast;
+    background-image: url("http://sfwallpaper.com/images/anime-background-images-1.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-attachment: fixed; 
+    background-size: cover;
+    min-height: 100vh;
+}
+
+.text {
+    font-family: 'Dokdo', cursive;
+}
+
+.article-wrap {
+    padding: 3%;
+    background: rgba(255, 255, 255, 0.205)
+}

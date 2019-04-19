@@ -1,14 +1,13 @@
 {{>nav/nav}}
 
-<h1 class="text text-center">Welcome to Anime News </h1>
-
+<h1 class="text text-center">Saved Articles</h1>
 
 <div class="container">
 
 
     <div class="article-wrap">
 
-    {{#each articles}}
+    {{#each saved}}
         <div class="carousel-item col s12 m7">
             <h4 class="header text">{{title}}</h4>
             <div class="card horizontal">
@@ -21,8 +20,6 @@
                     </div>
                     <div class="card-action">
                         <a class="text" href={{link}}>To Article</a>
-                        <a class="text save-article waves-effect waves-light btn"><i class="material-icons left">save
-                    </i>Save Article</a>
                     </div>
                 </div>
             </div>
