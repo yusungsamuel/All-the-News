@@ -5,11 +5,11 @@ var axios = require("axios");
 var cheerio = require("cheerio");
 var exphbs = require("express-handlebars");
 
-var PORT = 3000;
+var PORT = process.env.PORT || 3000;
 
 var db = require("./models")
 
-var MONGODB_URI = process.env.PORT || "mongodb://localhost/mongoHeadlines";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
 
 var app = express();
