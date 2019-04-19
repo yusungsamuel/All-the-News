@@ -1,8 +1,41 @@
-    
-    
-    <h1 class="text-center">Welcome to Anime News </h1>
-      
-    <button class="clear-articles">Clear Articles</button>
-    
+<nav>
+    <div class="nav-wrapper deep-purple darken-4">
+        <a href="#" class="brand-logo center">Anime News</a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <li><a href="sass.html">Saved Articles</a></li>
+            <li>
+                <a class="clear-articles waves-effect waves-light btn"><i class="material-icons left">backspace
+                    </i>Clear Articles</a>
+            </li>
+
+        </ul>
+    </div>
+</nav>
+
+<h1 class="text-center">Welcome to Anime News </h1>
 
 
+<div class="container">
+
+{{#each articles}}
+
+<div class="col s12 m7">
+    <h4 class="header">{{title}}</h4>
+    <div class="card horizontal">
+      <div class="card-image">
+        <img src="{{image}}">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <p>{{description}}</p>
+        </div>
+        <div class="card-action">
+          <a href={{link}}>To Article</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {{/each}}
+
+  </div>

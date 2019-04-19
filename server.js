@@ -28,7 +28,12 @@ mongoose.connect(MONGODB_URI);
 
 //home page
 app.get("/", function(req, res){
-    res.render("index")
+    db.Article.find({}).then(function(dbArticles){
+        // console.log(dbArticles)
+        res.render("index", {articles: dbArticles})
+    })
+    
+    
 })
 
 //scrape request
@@ -77,6 +82,7 @@ app.post("/articles/:id", function(req, res){
       res.json(err);
     });
 })
+
 
 
 //clear all articles in db
