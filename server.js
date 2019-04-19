@@ -28,7 +28,6 @@ app.get("/scrape", function(req, res){
             var link = $(element).find(".title").children().attr("href");
             var peek = $(element).find("div.text").text();
             var image = $(element).children("a").find(".image").attr("src");
-            console.log(i , image)
         })
         res.send("SCRAPED")
     })
