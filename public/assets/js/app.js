@@ -1,3 +1,4 @@
+
 $(".clear-articles").on("click", function(event){
     console.log("clicked")
     
@@ -20,7 +21,7 @@ $(".scrape").on("click", function(){
     })
 })
 
-$(".save-article").on("click", function(){
+$(document).on("click", ".save-article", function(){
     event.preventDefault();
     console.log($(this).attr("data-id"))
     $.ajax({
@@ -30,3 +31,18 @@ $(".save-article").on("click", function(){
         console.log(response)
     })
 })
+
+$(document).on("click", ".note", function(){
+    event.preventDefault();
+    console.log($(this).attr("data-id"))
+    $.ajax({
+        url: "/articles/" + $(this).attr("data-id"),
+        method: "GET",
+    }).then(function(response){
+        console.log(response)
+    })
+})
+
+$(document).ready(function(){
+    $('.modal').modal();
+  });
