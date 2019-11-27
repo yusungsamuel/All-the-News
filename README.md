@@ -2,7 +2,7 @@
 ![alt text](public/assets/image/demo.png "Logo Title Text 1")
 
 ## Description
-This is a full stack application that allow users to scrape news stories from the website, My Anime List, and be display on the browser. User can also save articles and attach note to a saved article. 
+This is a full stack application that allow users to scrape news stories from the website, My Anime List, and be display on the browser. User can also save articles and attach note to a saved article. See it live [HERE](https://all-newly-news.herokuapp.com/).
 
 ## Technologies Used
 + HTML
